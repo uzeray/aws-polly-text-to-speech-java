@@ -1,6 +1,6 @@
 # AWS Polly Text-to-Speech (Java)
 
-A small Java/Maven CLI that reads a text file and converts it to an MP3 using [Amazon Polly](https://aws.amazon.com/polly/).
+**Turn any text file into a narrated MP3 from the command line.** A small Java/Maven CLI that reads a text file and converts it to natural-sounding speech using [Amazon Polly](https://aws.amazon.com/polly/) — no manual AWS console work, just point it at a file and get audio out.
 
 ## How it works
 

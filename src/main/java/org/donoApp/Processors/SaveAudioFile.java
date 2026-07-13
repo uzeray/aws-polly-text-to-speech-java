@@ -10,7 +10,7 @@ public class SaveAudioFile {
 
     private DateTime currentTime = new DateTime(DateTime.now());
     private String formattedStemp = currentTime.toString().replace("-", "_").replace(":", "_");
-    private final String rootDir = "C://Users/uzera/OneDrive/Desktop/";
+    private final String rootDir = System.getProperty("user.dir") + File.separator + "output" + File.separator;
     private final String fileFormat = ".mp3";
 
     public SaveAudioFile(byte[] audioData) {
@@ -19,9 +19,10 @@ public class SaveAudioFile {
 
     private void saveProcess(byte[] audioData, String rootDir, String timeStemp, String fileFormat) {
         try {
-            File outputDir = new File(rootDir + timeStemp + fileFormat);
-            if (outputDir.exists()) outputDir.mkdirs();
-            FileOutputStream fileOS = new FileOutputStream(outputDir);
+            File outputDirPath = new File(rootDir);
+            if (!outputDirPath.exists()) outputDirPath.mkdirs();
+            File outputFile = new File(rootDir + timeStemp + fileFormat);
+            FileOutputStream fileOS = new FileOutputStream(outputFile);
             fileOS.write(audioData);
             fileOS.close();
         } catch (IOException e) {
